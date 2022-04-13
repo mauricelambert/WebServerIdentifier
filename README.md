@@ -6,6 +6,8 @@
 
 This package identifies Web servers using an aggressive technique based on the maximum size of the URI.
 
+This tool is a basic implementation, the technique is describe [here](https://www.slideshare.net/MauriceLambert1/webmaxuriidentifierpdf).
+
 ## Requirements
 
 This package require:
@@ -77,6 +79,7 @@ maxsize, target_server = servers.popitem()
  - [Pypi](https://pypi.org/project/WebServerIdentifier/)
  - [Documentation](https://mauricelambert.github.io/info/python/security/WebServerIdentifier.html)
  - [Executable](https://mauricelambert.github.io/info/python/security/WebServerIdentifier.pyz)
+ - [Presentation](https://www.slideshare.net/MauriceLambert1/webmaxuriidentifierpdf)
 
 ## Help
 

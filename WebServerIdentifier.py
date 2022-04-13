@@ -263,7 +263,7 @@ under certain conditions.
 >>>
 """
 
-__version__ = "0.0.1"
+__version__ = "0.1.0"
 __author__ = "Maurice Lambert"
 __author_email__ = "mauricelambert434@gmail.com"
 __maintainer__ = "Maurice Lambert"
@@ -290,9 +290,9 @@ from http.client import HTTPConnection, HTTPSConnection, HTTPResponse
 from PythonToolsKit.Arguments import ArgumentParser, verbose
 from PythonToolsKit.Random import get_random_strings
 from PythonToolsKit.Logs import get_custom_logger
+from typing import Tuple, Set, List, Dict, Union
 from collections.abc import Callable, Generator
 from ssl import _create_unverified_context
-from typing import Tuple, Set, List, Dict
 from PythonToolsKit.PrintF import printf
 from dataclasses import dataclass
 from argparse import Namespace
@@ -321,6 +321,7 @@ servers: List[str] = (
     "Cherokee",
     "H2O",
     "Quark",
+    "Twisted",
 )
 
 
@@ -340,6 +341,15 @@ class WebServerMaxUriSize(Enum):
     Cherokee: int = 6098
     H2O: int = 313294
     Quark: int = 2015
+    Twisted: int = 12245
+    Ruby: int = 2015
+    PerlMojolicious: int = 6091
+    PerlPlack: int = 98256
+    NodeJS: int = 12257
+    Php: int = 61391
+    Erlang: int = 2015
+    Busybox: int = None  # More than 11111111111
+    Webfs: int = 2015
 
 
 class WebServerErrorCode(Enum):
@@ -359,7 +369,16 @@ class WebServerErrorCode(Enum):
     WitchServer: int = 0
     Cherokee: int = 413  # No response between 6099 and 7634
     H2O: int = 400
-    Quark: int = 2014
+    Quark: int = 431
+    Twisted: int = 400
+    Ruby: int = 414
+    PerlMojolicious: int = 500
+    PerlPlack: int = 0
+    NodeJS: int = 431
+    Php: int = 0
+    Erlang: int = 500
+    Busybox: int = None  # More than 11111111111
+    Webfsd: int = 400
 
 
 @dataclass
@@ -505,48 +524,107 @@ class WebServerIdentifier:
 
     def identify_server(
         self, *args, **kwargs
-    ) -> Generator[HTTPResponse, int, Dict[int, str]]:
+    ) -> Generator[HTTPResponse, int, Dict[int, str], Set[int]]:
 
         """
         This function identifies the target's web server.
         """
 
-        servers: Dict[int, str] = {
+        maxsize_servers: Dict[int, str] = {
             server.value: server.name.rstrip("0123456789")
             for server in WebServerMaxUriSize
             if server.value is not None
         }
         error_codes: Set[int] = {code.value for code in WebServerErrorCode}
+        status_responses: Set[int] = set()
         interval: int = self.interval
         response: HTTPResponse = None
+        last_size: int = 0
 
-        while len(servers) > 1:
+        while len(maxsize_servers) > 1:
             if interval and response:
                 sleep(interval)
 
-            middle = round(median(servers))
+            middle = round(median(maxsize_servers))
+
+            if last_size == middle:
+                logger_debug(
+                    "Median is the same than the precedent request... "
+                    f"Add 1 to the median ({middle})"
+                )
+                middle += 1
+
             response = self.request(*args, size=middle, **kwargs)
 
             status = response.status
             logger_debug(f"Request size: {middle}, response status: {status}.")
 
             if status in error_codes:
-                servers = {
+                status_responses.add(status)
+                maxsize_servers = {
                     code: name
-                    for code, name in servers.items()
+                    for code, name in maxsize_servers.items()
                     if code < middle
                 }
             else:
-                servers = {
+                maxsize_servers = {
                     code: name
-                    for code, name in servers.items()
+                    for code, name in maxsize_servers.items()
                     if code >= middle
                 }
 
-            logger_debug(f"Servers size: {len(servers)}.")
-            yield response, middle, servers
+            last_size = middle
+            logger_debug(f"Servers size: {len(maxsize_servers)}.")
+            yield response, middle, maxsize_servers, error_codes
 
-        yield None, middle, servers
+        servers = self.compare_matching_servers(
+            maxsize_servers, status_responses
+        )
+
+        yield None, middle, servers, error_codes
+
+    def compare_matching_servers(
+        self, maxsize_servers: Dict[int, str], status_responses: Set[int]
+    ):
+
+        """
+        This function compares Web servers matching
+        with the max URI size (using error codes).
+        """
+
+        logger_debug("Identifying the Web Server...")
+        max_size, server_name = maxsize_servers.popitem()
+        servers_maxsize: Dict[str, int] = {
+            name: value.value
+            for name, value in WebServerMaxUriSize.__members__.items()
+            if value.value and value.value == max_size
+        }
+
+        maxsize_servers_matching = len(servers_maxsize)
+
+        if maxsize_servers_matching == 1:
+            logger_debug(
+                f"Only one server ({server_name}) matching "
+                f"with max URI size: {max_size}"
+            )
+            servers = {max_size: server_name}
+        else:
+            logger_debug(
+                f"Thare are {maxsize_servers_matching} servers matching with"
+                f" max URI size: {max_size}. Compare error codes..."
+            )
+            servers = {}
+            for server_name in servers_maxsize.keys():
+                servers.update(
+                    {
+                        value.value: name.rstrip("0123456789")
+                        for name, value in WebServerErrorCode.__members__.items()
+                        if server_name in name
+                        and value.value in status_responses
+                    }
+                )
+
+        return servers
 
 
 def parse_args() -> Namespace:
@@ -617,7 +695,10 @@ def get_max_uri_size(
                 f"{response.status!r} {response.reason!r}"
             )
 
-            last_response: HTTPResponse = response
+            if isinstance(
+                response, HTTPResponse
+            ):  # CustomResponse raise exception
+                last_response: HTTPResponse = response
 
     error_status = identifier.error_status
     error_reason = identifier.error_reason
@@ -638,22 +719,41 @@ def identify_server(
     This function prints the probable target's Web Server.
     """
 
+    last_error: Union[HTTPResponse, CustomResponse] = None
     generator = identifier.identify_server(method=method)
     response: HTTPResponse = 0
 
     while response is not None:
-        response, size, servers = next(generator)
+        response, size, servers, error_status = next(generator)
 
         if response is not None:
-            verbose(
-                f"Response status: {response.status} for request size: {size}."
+            status = response.status
+            verbose(f"Response status: {status} for request size: {size}.")
+
+            if status in error_status:
+                last_error = response
+
+            if isinstance(
+                response, HTTPResponse
+            ):  # CustomResponse raise exception
+                last_response: HTTPResponse = response
+
+    printf(
+        f"Server header: {last_response.getheader('Server', '')!r}, last"
+        f" request size: {size!r}, last error code: {last_error.status!r}."
+    )
+
+    for code_or_size, name in servers.items():
+        if code_or_size in error_status:
+            printf(
+                f"Web Server matching: {name!r} (last"
+                f" error code: {code_or_size!r})."
             )
-
-            last_response: HTTPResponse = response
-
-    code, name = servers.popitem()
-    printf(f"Server header: {last_response.getheader('Server', '')!r}")
-    printf(f"Web Server found: {name!r} (request size {code} pass).")
+        else:
+            printf(
+                f"Web Server matching: {name!r} (max"
+                f" request size: {code_or_size!r})."
+            )
 
     return 0
 
@@ -702,3 +802,5 @@ print(copyright)
 
 if __name__ == "__main__":
     exit(main())
+
+# https://gist.github.com/willurd/5720255
