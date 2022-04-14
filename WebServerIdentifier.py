@@ -263,7 +263,7 @@ under certain conditions.
 >>>
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "Maurice Lambert"
 __author_email__ = "mauricelambert434@gmail.com"
 __maintainer__ = "Maurice Lambert"
@@ -610,7 +610,7 @@ class WebServerIdentifier:
             servers = {max_size: server_name}
         else:
             logger_debug(
-                f"Thare are {maxsize_servers_matching} servers matching with"
+                f"There are {maxsize_servers_matching} servers matching with"
                 f" max URI size: {max_size}. Compare error codes..."
             )
             servers = {}

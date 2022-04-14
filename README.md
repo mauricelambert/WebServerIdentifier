@@ -4,9 +4,11 @@
 
 ## Description
 
-This package identifies Web servers using an aggressive technique based on the maximum size of the URI.
+This package identifies Web servers using an aggressive technique based on the maximum size of the URI. In some configurations this technique can even identify web servers placed behind a proxy web server without any identifiable content.
 
-This tool is a basic implementation, the technique is describe [here](https://www.slideshare.net/MauriceLambert1/webmaxuriidentifierpdf).
+For more information about this technique, please read this [PDF](https://www.slideshare.net/MauriceLambert1/Web-MaxUriIdentifier) ([github.io](https://mauricelambert.github.io/info/python/security/Web-MaxUriIdentifier.pdf))).
+
+This technique performs an in depth identification with certain configurations. An example is available at the bottom of this README.
 
 ## Requirements
 
@@ -73,13 +75,19 @@ while response is not None:
 maxsize, target_server = servers.popitem()
 ```
 
+## In depth identification
+
+In this example, we have a ruby web server protected by an NGINX web proxy. The maximum ruby web server URI size is 2015 characters and the maximum NGINX web proxy URI size is 6132 characters. It is possible to detect the ruby web server without any specific content, this screenshot proves it:
+
+![In depth Indentifaction - Screenshot](https://mauricelambert.github.io/info/python/security/InDepthIdentification.png "In depth Indentifaction")
+
 ## Links
 
  - [Github Page](https://github.com/mauricelambert/WebServerIdentifier)
  - [Pypi](https://pypi.org/project/WebServerIdentifier/)
  - [Documentation](https://mauricelambert.github.io/info/python/security/WebServerIdentifier.html)
  - [Executable](https://mauricelambert.github.io/info/python/security/WebServerIdentifier.pyz)
- - [Presentation](https://www.slideshare.net/MauriceLambert1/webmaxuriidentifierpdf)
+ - [PDF](https://www.slideshare.net/MauriceLambert1/Web-MaxUriIdentifier) ([github.io](https://mauricelambert.github.io/info/python/security/Web-MaxUriIdentifier.pdf)))
 
 ## Help
 
