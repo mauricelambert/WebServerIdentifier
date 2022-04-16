@@ -116,111 +116,111 @@ This program comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it
 under certain conditions.
 
-[2022-04-03 19:10:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:518} Command line arguments parsed.
-[2022-04-03 19:10:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:530} Identifier built.
-[2022-04-03 19:10:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:286} Get minimum and maximum server URI sizes.
-[2022-04-03 19:10:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:310} Start the search for maximum URI length...
-[2022-04-03 19:10:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 395735.
-[2022-04-03 19:10:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 1 sent. Get response...
-[2022-04-03 19:10:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 395737, response status: 414
+[2016-06-22 02:52:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:518} Command line arguments parsed.
+[2016-06-22 02:52:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:530} Identifier built.
+[2016-06-22 02:52:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:286} Get minimum and maximum server URI sizes.
+[2016-06-22 02:52:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:310} Start the search for maximum URI length...
+[2016-06-22 02:52:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 395735.
+[2016-06-22 02:52:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 1 sent. Get response...
+[2016-06-22 02:52:36] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 395737, response status: 414
 [*] Request size: 395737, response code: 414 'Request-URI Too Long'
-[2022-04-03 19:10:37] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:37] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 198874.
-[2022-04-03 19:10:37] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 2 sent. Get response...
-[2022-04-03 19:10:37] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 198876, response status: 414
+[2016-06-22 02:52:37] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:37] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 198874.
+[2016-06-22 02:52:37] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 2 sent. Get response...
+[2016-06-22 02:52:37] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 198876, response status: 414
 [*] Request size: 198876, response code: 414 'Request-URI Too Long'
-[2022-04-03 19:10:38] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:38] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 100443.
-[2022-04-03 19:10:38] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 3 sent. Get response...
-[2022-04-03 19:10:38] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 100445, response status: 414
+[2016-06-22 02:52:38] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:38] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 100443.
+[2016-06-22 02:52:38] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 3 sent. Get response...
+[2016-06-22 02:52:38] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 100445, response status: 414
 [*] Request size: 100445, response code: 414 'Request-URI Too Long'
-[2022-04-03 19:10:39] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:39] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 51228.
-[2022-04-03 19:10:39] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 4 sent. Get response...
-[2022-04-03 19:10:39] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 51230, response status: 414
+[2016-06-22 02:52:39] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:39] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 51228.
+[2016-06-22 02:52:39] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 4 sent. Get response...
+[2016-06-22 02:52:39] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 51230, response status: 414
 [*] Request size: 51230, response code: 414 'Request-URI Too Long'
-[2022-04-03 19:10:40] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:40] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 26621.
-[2022-04-03 19:10:40] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 5 sent. Get response...
-[2022-04-03 19:10:40] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 26623, response status: 414
+[2016-06-22 02:52:40] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:40] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 26621.
+[2016-06-22 02:52:40] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 5 sent. Get response...
+[2016-06-22 02:52:40] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 26623, response status: 414
 [*] Request size: 26623, response code: 414 'Request-URI Too Long'
-[2022-04-03 19:10:41] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:41] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 14317.
-[2022-04-03 19:10:41] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 6 sent. Get response...
-[2022-04-03 19:10:41] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 14319, response status: 414
+[2016-06-22 02:52:41] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:41] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 14317.
+[2016-06-22 02:52:41] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 6 sent. Get response...
+[2016-06-22 02:52:41] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 14319, response status: 414
 [*] Request size: 14319, response code: 414 'Request-URI Too Long'
-[2022-04-03 19:10:42] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:42] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 8165.
-[2022-04-03 19:10:42] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 7 sent. Get response...
-[2022-04-03 19:10:42] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 8167, response status: 404
+[2016-06-22 02:52:42] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:42] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 8165.
+[2016-06-22 02:52:42] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 7 sent. Get response...
+[2016-06-22 02:52:42] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 8167, response status: 404
 [*] Request size: 8167, response code: 404 'Not Found'
-[2022-04-03 19:10:43] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:43] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 11241.
-[2022-04-03 19:10:43] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 8 sent. Get response...
-[2022-04-03 19:10:43] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 11243, response status: 404
+[2016-06-22 02:52:43] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:43] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 11241.
+[2016-06-22 02:52:43] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 8 sent. Get response...
+[2016-06-22 02:52:43] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 11243, response status: 404
 [*] Request size: 11243, response code: 404 'Not Found'
-[2022-04-03 19:10:44] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:44] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12779.
-[2022-04-03 19:10:44] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 9 sent. Get response...
-[2022-04-03 19:10:44] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12781, response status: 414
+[2016-06-22 02:52:44] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:44] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12779.
+[2016-06-22 02:52:44] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 9 sent. Get response...
+[2016-06-22 02:52:44] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12781, response status: 414
 [*] Request size: 12781, response code: 414 'Request-URI Too Long'
-[2022-04-03 19:10:45] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:45] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12010.
-[2022-04-03 19:10:45] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 10 sent. Get response...
-[2022-04-03 19:10:45] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12012, response status: 404
+[2016-06-22 02:52:45] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:45] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12010.
+[2016-06-22 02:52:45] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 10 sent. Get response...
+[2016-06-22 02:52:45] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12012, response status: 404
 [*] Request size: 12012, response code: 404 'Not Found'
-[2022-04-03 19:10:46] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:46] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12394.
-[2022-04-03 19:10:46] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 11 sent. Get response...
-[2022-04-03 19:10:46] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12396, response status: 414
+[2016-06-22 02:52:46] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:46] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12394.
+[2016-06-22 02:52:46] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 11 sent. Get response...
+[2016-06-22 02:52:46] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12396, response status: 414
 [*] Request size: 12396, response code: 414 'Request-URI Too Long'
-[2022-04-03 19:10:48] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:48] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12202.
-[2022-04-03 19:10:48] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 12 sent. Get response...
-[2022-04-03 19:10:48] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12204, response status: 404
+[2016-06-22 02:52:48] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:48] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12202.
+[2016-06-22 02:52:48] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 12 sent. Get response...
+[2016-06-22 02:52:48] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12204, response status: 404
 [*] Request size: 12204, response code: 404 'Not Found'
-[2022-04-03 19:10:49] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:49] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12298.
-[2022-04-03 19:10:49] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 13 sent. Get response...
-[2022-04-03 19:10:49] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12300, response status: 414
+[2016-06-22 02:52:49] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:49] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12298.
+[2016-06-22 02:52:49] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 13 sent. Get response...
+[2016-06-22 02:52:49] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12300, response status: 414
 [*] Request size: 12300, response code: 414 'Request-URI Too Long'
-[2022-04-03 19:10:50] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:50] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12250.
-[2022-04-03 19:10:50] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 14 sent. Get response...
-[2022-04-03 19:10:50] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12252, response status: 400
+[2016-06-22 02:52:50] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:50] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12250.
+[2016-06-22 02:52:50] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 14 sent. Get response...
+[2016-06-22 02:52:50] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12252, response status: 400
 [*] Request size: 12252, response code: 400 'Bad Request'
-[2022-04-03 19:10:51] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:51] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12226.
-[2022-04-03 19:10:51] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 15 sent. Get response...
-[2022-04-03 19:10:51] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12228, response status: 404
+[2016-06-22 02:52:51] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:51] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12226.
+[2016-06-22 02:52:51] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 15 sent. Get response...
+[2016-06-22 02:52:51] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12228, response status: 404
 [*] Request size: 12228, response code: 404 'Not Found'
-[2022-04-03 19:10:52] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:52] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12238.
-[2022-04-03 19:10:52] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 16 sent. Get response...
-[2022-04-03 19:10:52] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12240, response status: 404
+[2016-06-22 02:52:52] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:52] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12238.
+[2016-06-22 02:52:52] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 16 sent. Get response...
+[2016-06-22 02:52:52] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12240, response status: 404
 [*] Request size: 12240, response code: 404 'Not Found'
-[2022-04-03 19:10:53] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:53] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12244.
-[2022-04-03 19:10:53] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 17 sent. Get response...
-[2022-04-03 19:10:53] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12246, response status: 400
+[2016-06-22 02:52:53] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:53] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12244.
+[2016-06-22 02:52:53] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 17 sent. Get response...
+[2016-06-22 02:52:53] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12246, response status: 400
 [*] Request size: 12246, response code: 400 'Bad Request'
-[2022-04-03 19:10:54] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:54] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12241.
-[2022-04-03 19:10:54] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 18 sent. Get response...
-[2022-04-03 19:10:54] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12243, response status: 400
+[2016-06-22 02:52:54] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:54] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12241.
+[2016-06-22 02:52:54] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 18 sent. Get response...
+[2016-06-22 02:52:54] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12243, response status: 400
 [*] Request size: 12243, response code: 400 'Bad Request'
-[2022-04-03 19:10:55] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:55] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12240.
-[2022-04-03 19:10:55] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 19 sent. Get response...
-[2022-04-03 19:10:55] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12242, response status: 400
+[2016-06-22 02:52:55] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:55] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12240.
+[2016-06-22 02:52:55] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 19 sent. Get response...
+[2016-06-22 02:52:55] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12242, response status: 400
 [*] Request size: 12242, response code: 400 'Bad Request'
-[2022-04-03 19:10:56] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
-[2022-04-03 19:10:56] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12239.
-[2022-04-03 19:10:56] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 20 sent. Get response...
-[2022-04-03 19:10:56] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12241, response status: 404
+[2016-06-22 02:52:56] DEBUG    (10) {__main__ - WebServerIdentifier.py:261} New connection built.
+[2016-06-22 02:52:56] DEBUG    (10) {__main__ - WebServerIdentifier.py:270} URI size: 12239.
+[2016-06-22 02:52:56] DEBUG    (10) {__main__ - WebServerIdentifier.py:274} Request 20 sent. Get response...
+[2016-06-22 02:52:56] DEBUG    (10) {__main__ - WebServerIdentifier.py:333} Request size: 12241, response status: 404
 [*] Request size: 12241, response code: 404 'Not Found'
-[2022-04-03 19:10:56] INFO     (20) {__main__ - WebServerIdentifier.py:344} Maximum URI length found: 12241, status: 400, reason: Bad Request.
+[2016-06-22 02:52:56] INFO     (20) {__main__ - WebServerIdentifier.py:344} Maximum URI length found: 12241, status: 400, reason: Bad Request.
 [+] Server header: 'Microsoft-HTTPAPI/2.0'
 [+] Maximum URI length is: 12241, error code: 400 'Bad Request'
 
@@ -263,7 +263,7 @@ under certain conditions.
 >>>
 """
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 __author__ = "Maurice Lambert"
 __author_email__ = "mauricelambert434@gmail.com"
 __maintainer__ = "Maurice Lambert"

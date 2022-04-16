@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="WebServerIdentifier",
-    version="0.1.1",
+    version="0.1.2",
     py_modules=["WebServerIdentifier"],
     install_requires=["PythonToolsKit"],
     author="Maurice Lambert",
@@ -16,6 +16,7 @@ setup(
     project_urls={
         "Documentation": "https://mauricelambert.github.io/info/python/security/WebServerIdentifier.html",
         "Executable": "https://mauricelambert.github.io/info/python/security/WebServerIdentifier.pyz",
+        "Presentation": "https://www.slideshare.net/MauriceLambert1/webmaxuriidentifierpdf",
     },
     classifiers=[
         "Programming Language :: Python",

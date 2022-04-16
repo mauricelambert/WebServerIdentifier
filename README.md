@@ -6,7 +6,7 @@
 
 This package identifies Web servers using an aggressive technique based on the maximum size of the URI. In some configurations this technique can even identify web servers placed behind a proxy web server without any identifiable content.
 
-For more information about this technique, please read this [PDF](https://www.slideshare.net/MauriceLambert1/Web-MaxUriIdentifier) ([github.io](https://mauricelambert.github.io/info/python/security/Web-MaxUriIdentifier.pdf))).
+For more information about this technique, please read this [PDF](https://www.slideshare.net/MauriceLambert1/webmaxuriidentifierpdf) ([github.io](https://mauricelambert.github.io/info/python/security/Web-MaxUriIdentifier.pdf))).
 
 This technique performs an in depth identification with certain configurations. An example is available at the bottom of this README.
 
@@ -87,7 +87,7 @@ In this example, we have a ruby web server protected by an NGINX web proxy. The 
  - [Pypi](https://pypi.org/project/WebServerIdentifier/)
  - [Documentation](https://mauricelambert.github.io/info/python/security/WebServerIdentifier.html)
  - [Executable](https://mauricelambert.github.io/info/python/security/WebServerIdentifier.pyz)
- - [PDF](https://www.slideshare.net/MauriceLambert1/Web-MaxUriIdentifier) ([github.io](https://mauricelambert.github.io/info/python/security/Web-MaxUriIdentifier.pdf)))
+ - [PDF](https://www.slideshare.net/MauriceLambert1/Web-MaxUriIdentifier) ([github.io](https://mauricelambert.github.io/info/python/security/Web-MaxUriIdentifier.pdf))
 
 ## Help
 
