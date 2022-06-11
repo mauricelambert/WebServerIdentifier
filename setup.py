@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name="WebServerIdentifier",
-    version="1.0.0",
+    version="1.1.0",
     py_modules=["WebServerIdentifier"],
     install_requires=["PythonToolsKit"],
     author="Maurice Lambert",

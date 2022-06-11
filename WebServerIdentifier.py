@@ -243,7 +243,7 @@ under certain conditions.
 >>> for size, r in identifier.get_max_URI_size(): pass
 ...
 >>> size
-12212
+16283
 >>> for size, r in identifier.get_max_URI_size(method="HEAD"): pass
 ...
 >>> for r, size, servers in identifier.identify_server(): pass
@@ -251,12 +251,10 @@ under certain conditions.
 >>> for r, size, servers in identifier.identify_server(method="HEAD"): pass
 ...
 >>> size
-12213
+16283
 >>> servers
 {'IIS'}
 >>> name = servers.pop()
->>> size
-12213
 >>> name
 'IIS'
 >>>
@@ -270,7 +268,7 @@ Test passed.
 ~#
 """
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __author__ = "Maurice Lambert"
 __author_email__ = "mauricelambert434@gmail.com"
 __maintainer__ = "Maurice Lambert"
@@ -455,6 +453,22 @@ LITE_SPEED_content: bytes = (
     b':20px;font-size: 30px;">Request-URI Too Large\r\n</h2>\n<p>'
     b"The request URL is over the maximum size allowed!</p>\n</div>"
     b"</div></body></html>\n"
+)
+
+CHEROKEE_hash: bytes = (
+    b'\x9b=\xc9C\x13iw\xf4\x80T\xdb\x9b\x83\xfaE\xde\xb9\x17\r'
+    b'\xff\xd2\xe3\x9f\xb5\xca\x86\xbf\xaf\xd0\r\xc5C\x02!\xcc'
+    b'l:\xd4b\xbf1.z\xeb=\xdf\x8d\xa9Z$\xa0\xdd\x0e\x92\x14\xc3'
+    b'6\xf2/`t\x19\x052'
+) # b"3\xe5\xbb\xc7|_=\t[\xd8\xd9}\x8d'\xdc\xfb"
+
+CHEROKEE_content: bytes = (
+    b'<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\r\n<html>'
+    b'\r\n<head><title>413 Request Entity too large</title>\r\n<meta'
+    b' http-equiv="Content-Type" content="text/html; charset=utf-8"'
+    b' />\r\n</head>\r\n<body>\r\n<h1>413 Request Entity too large'
+    b'</h1>\r\nThe length of request entity exceeds the capacity'
+    b' limit for this server.\r\n<p><hr>\r\nCherokee web server'
 )
 
 PYTHON_hash: bytes = (
@@ -647,14 +661,14 @@ class MaxURIerror:
             if len(content) < 55:
                 if data == content:
                     logger_info(
-                        "Response hash match with "
+                        "Response content match with "
                         f"{''.join(servers)!r} ! (content: {content!r})"
                     )
                     return servers
             else:
                 if content in data:
                     logger_info(
-                        "Response hash match with "
+                        "Response content match with "
                         f"{''.join(servers)!r} ! (content: {content!r})"
                     )
                     return servers
@@ -662,73 +676,75 @@ class MaxURIerror:
 
 servers: Dict[str, List[MaxURIerror]] = {
     "IIS": [
-        MaxURIerror("IIS", 12284, 414, IIS_414_hash, IIS_414_content),
-        MaxURIerror("IIS", 12241, 400, IIS_400_hash, IIS_400_content),
-        MaxURIerror("IIS", 12212, 400, IIS_400_hash2, IIS_400_content2),
+        MaxURIerror("IIS", 16379, 414, IIS_414_hash, IIS_414_content),
+        MaxURIerror("IIS", None, None, IIS_400_hash, IIS_400_content),
+        MaxURIerror("IIS", 16283, 400, IIS_400_hash2, IIS_400_content2),
     ],
-    "Python": [MaxURIerror("Python", 49140, 414, PYTHON_hash, PYTHON_content)],
-    "Apache": [MaxURIerror("Apache", 6134, 414, APACHE_hash, APACHE_content)],
-    "NGINX": [MaxURIerror("NGINX", 6133, 414, NGINX_hash, NGINX_content)],
+    "Python": [MaxURIerror("Python", 65521, 414, PYTHON_hash, PYTHON_content)],
+    "Apache": [MaxURIerror("Apache", 8178, 414, APACHE_hash, APACHE_content)],
+    "NGINX": [MaxURIerror("NGINX", 8177, 414, NGINX_hash, NGINX_content)],
     "Lighttp": [
-        MaxURIerror("Lighttp", 6095, 431, LIGHTTPD_hash, LIGHTTPD_content),
-        MaxURIerror("Lighttp", 6066, 431),
+        # MaxURIerror("Lighttp", 8127, 431),
+        MaxURIerror("Lighttp", 8088, 431, LIGHTTPD_hash, LIGHTTPD_content),
     ],
     "OpenLiteSpeed": [
         MaxURIerror(
-            "OpenLiteSpeed", 24577, 414, LITE_SPEED_hash, LITE_SPEED_content
+            "OpenLiteSpeed", 32769, 414, LITE_SPEED_hash, LITE_SPEED_content
         ),
-        MaxURIerror("OpenLiteSpeed", 16164, 503),
-        MaxURIerror("OpenLiteSpeed", 16164, 0),
+        MaxURIerror("OpenLiteSpeed", 21552, 503),
+        MaxURIerror("OpenLiteSpeed", 21552, 0),
     ],
     "Caddy": [
-        MaxURIerror("Caddy", 52175, 431),
-        MaxURIerror("Caddy", 52145, 431, CADDY_hash, CADDY_content),
+        # MaxURIerror("Caddy", 69567, 431),
+        MaxURIerror("Caddy", 1052568, 431, CADDY_hash, CADDY_content),
     ],
     "Tomcat": [
-        MaxURIerror("Tomcat", 6092, 400),
-        MaxURIerror("Tomcat", 6062, 400, TOMCAT_hash, TOMCAT_content),
-        MaxURIerror("Tomcat", 6092, 0),
+        # MaxURIerror("Tomcat", 8123, 400),
+        MaxURIerror("Tomcat", 8083, 400, TOMCAT_hash, TOMCAT_content),
     ],
     "Traefik": [
-        MaxURIerror("Traefik", 789458, 431),
-        MaxURIerror("Traefik", 789422, 431),
-        MaxURIerror("Traefik", 789426, 431),
-        MaxURIerror("Traefik", 789428, 431, TRAEFIK_hash, TRAEFIK_content),
+        MaxURIerror("Traefik", 1052611, 431),
+        MaxURIerror("Traefik", 1052563, 431),
+        MaxURIerror("Traefik", 1052568, 431),
+        MaxURIerror("Traefik", 1052571, 431, TRAEFIK_hash, TRAEFIK_content),
     ],
-    "WitchServer": [MaxURIerror("WitchServer", None, 0)],  # 49070
+    "WitchServer": [MaxURIerror("WitchServer", None, 0)], # unstable
     "Cherokee": [
-        MaxURIerror("Cherokee", 6098, 413),
-        MaxURIerror("Cherokee", 6066, 0),
-        MaxURIerror("Cherokee", 6063, 0),
+        MaxURIerror("Cherokee", 10136, 413),
+        MaxURIerror("Cherokee", 8088, 0),
     ],
     "H2O": [
-        MaxURIerror("H2O", 313294, 400),
-        MaxURIerror("H2O", 313262, 400, H2O_hash, H2O_content),
+        # MaxURIerror("H2O", 417726, 400),
+        MaxURIerror("H2O", 417683, 400, H2O_hash, H2O_content),
     ],
-    "Quark": [MaxURIerror("Quark", 2015, 431, QUARK_hash, QUARK_content)],
+    "Quark": [MaxURIerror("Quark", 201, 431, QUARK_hash, QUARK_content)],
     "Twisted": [
-        MaxURIerror("Twisted", 12245, 400),
-        MaxURIerror("Twisted", 12214, 400),
-        MaxURIerror("Twisted", 12278, 0),
+        # MaxURIerror("Twisted", 16327, 400),
+        MaxURIerror("Twisted", 16285, 400),
+        MaxURIerror("Twisted", 16371, 0),
     ],
-    "Ruby": [MaxURIerror("Ruby", 2015, 414, RUBY_hash, RUBY_content)],
-    "PerlMojolicious": [
-        MaxURIerror("PerlMojolicious", 2015, 500, PERLM_hash, PERLM_content)
+    "Ruby": [MaxURIerror("Ruby", 2687, 414, RUBY_hash, RUBY_content)],
+    "PerlMojolicious": [ # do not support route "/"
+        MaxURIerror("PerlMojolicious", 8177, 500, PERLM_hash, PERLM_content)
     ],
     "PerlPlack": [
-        MaxURIerror("PerlPlack", 98256, 0),
-        MaxURIerror("PerlPlack", 98222, 0),
+        # MaxURIerror("PerlPlack", 131008, 0),
+        MaxURIerror("PerlPlack", 130963, 0),
     ],
     "NodeJS": [
-        MaxURIerror("NodeJS", 12257, 431),
-        MaxURIerror("NodeJS", 12227, 431),
+        # MaxURIerror("NodeJS", 16343, 431),
+        MaxURIerror("NodeJS", 16303, 431),
     ],
-    "Php": [MaxURIerror("Php", 61391, 0), MaxURIerror("Php", 61358, 0)],
-    "Erlang": [MaxURIerror("Erlang", 2015, 500, ERLANG_hash, ERLANG_content)],
+    "Php": [
+        MaxURIerror("Php", 81811, 0), # MaxURIerror("Php", 61358, 0)
+    ],
+    "Erlang": [ # do not support query string
+        MaxURIerror("Erlang", 4094, 500, ERLANG_hash, ERLANG_content)
+    ],
     "Busybox": [MaxURIerror("Busybox", None, None)],
     "Webfs": [
-        MaxURIerror("Webfs", 2015, 400, WEBFS_hash, WEBFS_content),
-        MaxURIerror("Webfs", 2990, 0),
+        MaxURIerror("Webfs", 2048, 400, WEBFS_hash, WEBFS_content),
+        MaxURIerror("Webfs", 3987, 0),
     ],
 }
 
@@ -1044,7 +1060,7 @@ def parse_args() -> Namespace:
         "--ssl", "-s", action="store_true", help="Use HTTPS (SSL, encryption)."
     )
     add_argument(
-        "--timeout", "-t", type=int, help="Set timeout for HTTP requests."
+        "--timeout", "-t", type=float, help="Set timeout for HTTP requests."
     )
     add_argument(
         "--user-agent",
@@ -1067,6 +1083,8 @@ def get_max_uri_size(
     This function detects the maximum size of the target's URI.
     """
 
+    last_response = None
+
     for size, response in identifier.get_max_URI_size(method=method):
         verbose(
             f"Request size: {size}, response code: "
@@ -1077,6 +1095,13 @@ def get_max_uri_size(
             response, HTTPResponse
         ):  # CustomResponse raise exception
             last_response: HTTPResponse = response
+
+    if last_response is None:
+        last_response = identifier.request(method=method)
+
+    if isinstance(last_response, CustomResponse):
+        printf("Server unreachable.", state="ERROR")
+        return 2
 
     error_reason = identifier.error_reason
     printf(f"Server header: {last_response.getheader('Server', '')!r}")
@@ -1116,6 +1141,10 @@ def identify_server(
 
     if last_response is None:
         last_response = identifier.request(method=method)
+
+    if isinstance(last_response, CustomResponse):
+        printf("Server unreachable.", state="ERROR")
+        return 2
 
     printf(
         f"Server header: {last_response.getheader('Server', '')!r}, last"
